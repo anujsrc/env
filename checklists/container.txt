@@ -1,0 +1,26 @@
+Vagrant
+--------
+1. Setup Virtual Box for the distribution
+   1.1. Download URL: https://www.virtualbox.org/wiki/Linux_Downloads
+2. Setup Vagrant
+   2.1. Download URL: https://www.vagrantup.com/downloads.html
+
+Docker
+-------
+Pull the latest Ubuntu image
+docker pull ubuntu
+
+Mount the installer libraries as volume
+docker run -ti -v ~/Documents/fcstack/installer:/installer ubuntu /bin/bash
+
+Start docker container with a given name
+docker run --name "MECBOT-dev-1.x" -it ubuntu /bin/bash
+
+Inspect
+docker inspect <container-id>
+
+Start and Attach to exited container
+docker start -i -a <container-id>
+
+Connect to a particular container
+docker exec -it <container-id> /bin/bash

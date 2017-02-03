@@ -1,0 +1,193 @@
+Cider
+-----
+C-c M-j         cider-jack-in
+C-c M-c         connect to running nREPL
+M-x cider-jack-in       start nREPL and connect
+C-u M-x cider-jack-in   specify lein/boot project
+M-x cider-connect       connect to running nREPL
+C-c C-q                 Quit nREPL connection
+
+Cider-Evaluate
+---------------
+C-c C-e         Evaluate preceeding form
+C-c C-v w       Evaluate and replace with result
+C-c M-e         Evaluate and output result to REPL
+
+C-c M-p         Load the preceeding form in REPL buffer
+C-c C-p         Evaluate preceeding form and pretty-print in popup
+C-c C-f         Evaluate top-level form and pretty-print in buffer
+C-c C-c or
+C-M-x           Evaluate top-level form and echo
+C-c C-v v       Evaluate the form around point
+C-c C-v r       Evaluate the region and echo
+C-c C-b         Interrupt any pending evaluations
+
+Cider-Debug
+------------
+C-u C-M-x       Adds breakpoint and prepares to debug
+Other option is to just add #break before a form
+M-x             Lists all the instrumented defs
+
+- Debugger Shortcuts
+n          Next Step
+i          Step into a function
+o          Step out of the current s-exp
+O          Force step out of the current s-exp
+h          Skip all s-exp upto here
+H          Force step to here
+c          Continue without stopping
+e          Evaluate code in current context
+p          Inspect a value
+l          Inspect local variables
+j          Inject a value into running code
+s          Show the current stack
+t          Trace
+q          Quit execution
+
+Cider-Files/References/Docs
+-----------------------------
+C-c C-x         Reload all modified files on classpath
+C-c C-d d or
+C-c C-d C-d     Display doc string
+C-c C-d j or
+C-c C-d C-j     Display JavaDoc
+C-c C-d r or
+C-c C-d C-r     Lookup symbol in Grimoire
+C-c C-d w or
+C-c C-d C-w     Open Grimoire documentation in browser
+C-c C-d a or
+C-c C-d C-a     Apropos search for functions/vars
+C-c C-d f or
+C-c C-d C-f     Apropos search for documentation
+C-c C-d e or
+C-c C-d C-e     Apropos search for documentation select
+M-.             Jump to definition of symbol
+C-c M-.         Jump to resource referenced by point
+C-c C-.         Jump to some namespace on classpath
+M-,             Return to pre-jump location
+M-TAB           Complete the symbol at point
+
+Paredit
+--------
+http://danmidwood.com/content/2014/11/21/animated-paredit.html
+
+M-( or M-"      Wrap s-expressions
+C-)             Forward Slurp
+C-}             Forward Barf
+C-(             Backward Slurp
+C-{             Backward Barf
+
+File/Buffer/Window
+-------------------
+key combo	resulting editor command
+C-x C-f		open a file
+C-x C-s		save buffer
+C-x s           save file (save-as)
+C-x C-c		quit
+C-x 0		close current window (after splitting)
+C-x 1		close any other windows
+C-x 2		split window horizontally
+C-x 3		split window vertically
+C-x o		move cursor to other window
+C-x k RET	close current file (“kill buffer”)
+C-x b RET	make window show other buffer
+
+Select/Cut/Copy/Paste
+----------------------
+C-Space		begin text selection
+M-h		select current paragraph
+C-g		cancel
+C-w		cut
+M-w		copy
+C-y             paste
+M-y		paste next
+
+Search/Replace/Edit
+--------------------
+C-s		incremental search (RET to stop)
+C-r		incremental search backward
+C-M-s		regex incremental search
+C-M-r		regex incremental search backward
+M-%		search/replace
+M-x qrr		regex search/replace
+C-k             kill line
+C-d             kill character
+M-d             kill word
+M-delete        kill word backwards
+
+Format
+------
+M-q		re-wrap (reflow, justify) paragraph
+M-;		comment/uncomment region
+C-/		undo
+M-/		complete word (like tab-complete)
+
+Move around
+------------
+C-a		move cursor to beginning of line
+C-e		move cursor to end of line
+C-f		move cursor forward
+C-b		move cursor back
+M-f		move cursor forward-by-word
+M-b		move cursor backward-by-word
+C-n		move cursor to next line
+C-p		move cursor to prev line
+M-n		scroll view down
+M-p		scroll view up
+C-l		scroll to middle and redraw screen
+M-m		move to first non-whitespace char
+M-{		move cursor up-by-paragraph
+M-}		move cursor down-by-paragraph
+C-v		page down
+M-v		page up
+M-<		go to top of buffer
+M->		go to end of buffer
+M-g M-g n	go to line number n
+
+Markdown
+--------
+C-c C-c m       markdown-command > *markdown-output* buffer
+C-c C-c p       markdown-command > temporary file > browser
+C-c C-c e       markdown-command > basename.html
+C-c C-c v       markdown-command > basename.html > browser
+C-c C-c w       markdown-command > kill ring
+C-c C-c o       markdown-open-command
+C-c C-c l       markdown-live-preview-mode > *eww* buffer
+
+Help
+----
+C-h t           tutorial (goes over the basics)
+C-h b           describe all current key bindings
+C-h m           describe the current mode
+C-h a           apropos - search the help for a term
+C-h k           describe key
+
+- Update ~/.emacs
+
+(require 'package)
+
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+
+(setq package-enable-at-startup nil)
+(package-initialize)
+
+Themes
+-------
+Dracula Theme- https://draculatheme.com/emacs/
+Solarized Emacs- https://github.com/bbatsov/solarized-emacs
+Blackboard Theme- https://github.com/don9z/blackboard-theme
+Zerodark Theme- https://github.com/NicolasPetton/zerodark-theme
+Clues Theme- https://emacsthemes.com/themes/clues-theme.html
+Tomorrow Night Paradise- https://github.com/jimeh/tomorrow-night-paradise-theme.el
+Color Theme UJelly- https://github.com/marktran/color-theme-ujelly
+Zenburn- https://github.com/bbatsov/zenburn-emacs
+
+
+References
+-----------
+http://www.braveclojure.com/basic-emacs/
+http://blog.aaronbieber.com/2015/05/24/from-vim-to-emacs-in-fourteen-days.html
+http://www.unexpected-vortices.com/clojure/10-minute-emacs-for-clojure.html
+Paredit: http://danmidwood.com/content/2014/11/21/animated-paredit.html
