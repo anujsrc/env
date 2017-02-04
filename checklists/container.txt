@@ -5,6 +5,8 @@ Vagrant
    1.2. VirtualBox may fail if secure boot is enabled. To fix that sign the vboxdrv as-
         1.2.1. Generate Key: openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=Descriptive name/"
         1.2.2. Sign: sudo /usr/src/linux-headers-4.4.0-59-generic/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vboxdrv)
+               1.2.2.1. Also sign vboxnetadp, vboxnetflt, vboxpc, vboxgues, vboxsf and vboxvideo
+               1.2.2.2. For more details, see- https://github.com/mitchellh/vagrant/issues/1671
         1.2.3. Import: sudo mokutil --import MOK.der
         1.2.4. Reboot and choose enroll MOK.der
         1.2.5. Load the module post reboot: sudo modprobe vboxdrv

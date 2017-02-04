@@ -33,3 +33,26 @@ Here are some of the checklists and references that are always handy-
 * [Ubuntu-16.04 Installation Notes](https://github.com/anujsrc/env/blob/master/checklists/config.txt)
 * [Emacs Quick Reference](https://github.com/anujsrc/env/blob/master/references/emacsup.txt)
 * [Docker/Vagrant/VirtualBox Quick Reference](https://github.com/anujsrc/env/blob/master/checklists/container.txt)
+
+### Secure boot and VirtualBox Component Signing
+VirtualBox requires the components to be signed and key to be enrolled with to
+work with Secureboot. To do so, first generate the keys using the command-
+
+```
+openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=Descriptive name/"
+```
+Above command will generate two files ``MOK.priv`` and ``MOK.der``. To sign
+VirtualBox components execute the script
+[sign-vboxmods.sh](https://github.com/anujsrc/env/blob/master/sign-vboxmods.sh)
+in the same folder where the ``MOK.*`` files have been generated. Once you have
+signed the components, you need to enroll the key (only once) as shown below-
+
+```
+sudo mokutil --import MOK.der
+```
+Now, reboot the machine, enrol the key from the manager screen and probe the
+component as shown below-
+
+```
+sudo modprobe vboxdrv
+```
