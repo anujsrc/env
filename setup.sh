@@ -10,7 +10,7 @@ mkdir -p $SETUP_DIR/installers
 echo "Updating libraries..."
 sudo apt-get update
 echo "Upgrading system..."
-sudo apt-get upgrade
+#sudo apt-get upgrade
 
 # Utilities
 echo "Setting up utilities..."
@@ -97,6 +97,7 @@ fi
 echo "Setting up fonts..."
 mkdir -p ~/.fonts
 cp $SETUP_DIR/dotfiles/external/Hermit*.otf ~/.fonts
+cp $SETUP_DIR/dotfiles/external/Inconsolata*.otf ~/.fonts
 sudo fc-cache -vf ~/.fonts
 
 # liquid prompt

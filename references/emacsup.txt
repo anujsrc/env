@@ -95,12 +95,31 @@ C-x b RET	make window show other buffer
 Select/Cut/Copy/Paste
 ----------------------
 C-Space		begin text selection
+C-x Space       begin vertical rectangle selection
 M-h		select current paragraph
 C-g		cancel
 C-w		cut
 M-w		copy
 C-y             paste
 M-y		paste next
+
+Selections/Rectangles
+----------------------
+C-x r k         Kill region-rectangle text, save last killed rectangle (kill-rectangle)
+C-x r M-w       Save region-rectangle text as last killed rectangle (copy-rectangle-as-kill)
+C-x r d         Delete the text of the region-rectangle (delete-rectangle)
+C-x r y         Yank last killed rectangle with upper left corner at point (yank-rectangle)
+C-x r o         Insert blank space to fill the space of the region-rectangle (open-rectangle)
+                This pushes the previous contents of the region-rectangle to the right
+C-x r N         Insert line no. along left edge of region-rectangle (rectangle-number-lines)
+                This pushes the previous contents of the region-rectangle to the right
+C-x r c         Clear the region-rectangle by replacing content with spaces (clear-rectangle)
+C-x SPC         Toggle Rectangle Mark mode (rectangle-mark-mode)
+                When this mode is active, the region-rectangle is highlighted and
+                can be shrunk/grown, and the standard kill and yank commands operate on it.
+M-x delete-whitespace-rectangle Delete whitespace in each of the lines
+C-x r t string RET Replace rectangle contents with string on each line (string-rectangle)
+M-x string-insert-rectangle RET string RET Insert string on each line of the rectangle.
 
 Search/Replace/Edit
 --------------------

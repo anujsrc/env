@@ -1,9 +1,22 @@
 Vagrant
 --------
-1. Setup Virtual Box for the distribution
+1. Setup Virtual Box for the distribution using setup-virtualbox.sh or
    1.1. Download URL: https://www.virtualbox.org/wiki/Linux_Downloads
+   1.2. VirtualBox may fail if secure boot is enabled. To fix that sign the vboxdrv as-
+        1.2.1. Generate Key: openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=Descriptive name/"
+        1.2.2. Sign: sudo /usr/src/linux-headers-4.4.0-59-generic/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vboxdrv)
+        1.2.3. Import: sudo mokutil --import MOK.der
+        1.2.4. Reboot and choose enroll MOK.der
+        1.2.5. Load the module post reboot: sudo modprobe vboxdrv
+        1.2.6. See- http://askubuntu.com/questions/760671/could-not-load-vboxdrv-after-upgrade-to-ubuntu-16-04-and-i-want-to-keep-secur for more details
+        1.2.7. See related issues-
+               1.2.7.1. https://bugs.launchpad.net/ubuntu/+source/virtualbox/+bug/1574300
+               1.2.7.2. https://www.virtualbox.org/ticket/11577
+               1.2.7.3. To lookup signed file for your kernel: http://askubuntu.com/questions/770205/how-to-sign-kernel-modules-with-sign-file
+               1.2.7.4. Related: http://askubuntu.com/questions/802668/virtualbox-installation-gives-message-modprobe-vboxdrv-failed
 2. Setup Vagrant
    2.1. Download URL: https://www.vagrantup.com/downloads.html
+3. Set VAGRANT_HOME to the location where the boxes will be stored
 
 Docker
 -------
