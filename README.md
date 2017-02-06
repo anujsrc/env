@@ -23,6 +23,7 @@ Here are some of the utilities-
 
 * [Setup Docker](https://github.com/anujsrc/env/blob/master/setup-docker.sh)
 * [Setup Virtualbox](https://github.com/anujsrc/env/blob/master/setup-virtualbox.sh)
+* [Setup Vagrant](https://github.com/anujsrc/env/blob/master/setup-vagrant.sh)
 * [Benchmark Graphic Card](https://github.com/anujsrc/env/blob/master/setup-graphics.sh)
 * [Build Emacs25](https://github.com/anujsrc/env/blob/master/setup-emacs.sh)
 * [Restart Network](https://github.com/anujsrc/env/blob/master/restart-network.sh)

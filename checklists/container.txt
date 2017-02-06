@@ -19,6 +19,12 @@ Vagrant
 2. Setup Vagrant
    2.1. Download URL: https://www.vagrantup.com/downloads.html
 3. Set VAGRANT_HOME to the location where the boxes will be stored
+4. Setup vagrant plug-ins
+   4.1. vagrant plugin install vagrant-vbguest
+   4.2. vagrant plugin update vagrant-vbguest
+   4.3. vagrant plugin install vagrant-triggers
+   4.4. sudo VirtualBox restart
+   4.5. sudo service vboxdrv restart
 
 Docker
 -------
