@@ -4,7 +4,9 @@
 sudo apt-get update
 
 echo "Installing vagrant..."
-sudo apt-get install -y vagrant
+#sudo apt-get install -y vagrant
+wget https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1_x86_64.deb
+sudo dpkg -i vagrant_1.9.1_x86_64.deb
 
 echo "Installing required plug-ins"
 vagrant plugin install vagrant-vbguest
