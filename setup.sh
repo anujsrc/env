@@ -45,6 +45,9 @@ sudo apt-get install -y checkinstall
 sudo apt-get install -y graphviz
 sudo apt-get install -y markdown
 sudo apt-get install -y font-manager
+sudo apt-get install -y figlet
+sudo apt-get install -y cowsay
+sudo apt-get install -y htop
 
 # Shell (zsh) and syntax highlighting
 echo "Setting up oh-my-zsh..."
