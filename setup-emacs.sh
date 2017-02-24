@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Fail on error
+set -e
+
 # Pick script location
 SETUP_DIR=$(pwd)
 

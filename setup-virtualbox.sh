@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Fail on error
+set -e
+
 # Only for VirtualBox 5.1
 # Add source
 if [ ! -e /etc/apt/sources.list.d/virtualbox.list ]; then

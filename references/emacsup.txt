@@ -66,6 +66,7 @@ C-c M-.         Jump to resource referenced by point
 C-c C-.         Jump to some namespace on classpath
 M-,             Return to pre-jump location
 M-TAB           Complete the symbol at point
+C-h v           Update CIDER configuration
 
 Paredit
 --------

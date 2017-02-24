@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Fail on error
+set -e
+
 # Update deps
 sudo apt-get update
 
