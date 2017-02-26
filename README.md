@@ -58,3 +58,25 @@ component as shown below-
 ```
 sudo modprobe vboxdrv
 ```
+
+### Kernel Upgrades and DKMS Key Issues
+If you update your kernel, you need to make sure that all your DKMS modules are installed.
+Run ``build-dkms-modules.sh`` to fix one of these issues-
+
+```
+% dkms status
+bbswitch, 0.8, 4.4.0-59-generic, x86_64: installed
+bbswitch, 0.8, 4.4.0-62-generic, x86_64: installed (WARNING! Diff between built
+and installed module!)
+bbswitch, 0.8, 4.4.0-64-generic, x86_64: installed (WARNING! Diff between built
+and installed module!)
+nvidia-375, 375.39, 4.4.0-59-generic, x86_64: installed
+nvidia-375, 375.39, 4.4.0-62-generic, x86_64: installed (WARNING! Diff between
+built and installed module!) (WARNING! Diff between built and installed module!)
+(WARNING! Diff between built and installed module!) (WARNING! Diff between built
+and installed module!)
+nvidia-375, 375.39, 4.4.0-64-generic, x86_64: installed (WARNING! Diff between
+built and installed module!) (WARNING! Diff between built and installed module!)
+(WARNING! Diff between built and installed module!) (WARNING! Diff between built
+and installed module!)
+```
