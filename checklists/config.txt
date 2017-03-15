@@ -52,6 +52,7 @@ Customization and Utilities
    6.3. Dropbox (Download and Install)
    6.4. Inkscape  (Ubuntu Software)
    6.5. Install Unity Tweak Tool
+   6.6. Install FileZilla
 7. Add Terminal, Gedit and Chrome to Launcher
 8. Remove Amazon and Mount Point from launcher
 

@@ -53,6 +53,7 @@ sudo apt-get install -y cowsay
 sudo apt-get install -y htop
 sudo apt-get install -y yajl-tools
 sudo apt-get install -y gimp
+sudo apt-get install -y meld
 
 # Shell (zsh) and syntax highlighting
 echo "Setting up oh-my-zsh..."

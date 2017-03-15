@@ -44,23 +44,23 @@ sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
      kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der \
      /lib/modules/$(uname -r)/kernel/ubuntu/vbox/vboxguest/vboxguest.ko
 
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
-     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n vboxsf)
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
-     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der \
-     /lib/modules/$(uname -r)/kernel/ubuntu/vbox/vboxsf/vboxsf.ko
-
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
-     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n vboxvideo)
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
-     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der \
-     /lib/modules/$(uname -r)/kernel/ubuntu/vbox/vboxvideo/vboxvideo.ko
-
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
-     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n vboxdrv)
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
-     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der \
-     /lib/modules/4.4.0-64-generic/misc/vboxdrv.ko
+#sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
+#     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n vboxsf)
+#sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
+#     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der \
+#     /lib/modules/$(uname -r)/kernel/ubuntu/vbox/vboxsf/vboxsf.ko
+#
+#sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
+#     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n vboxvideo)
+#sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
+#     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der \
+#     /lib/modules/$(uname -r)/kernel/ubuntu/vbox/vboxvideo/vboxvideo.ko
+#
+#sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
+#     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n vboxdrv)
+#sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
+#     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der \
+#     /lib/modules/4.4.0-64-generic/misc/vboxdrv.ko
 
 echo "Signing bbswitch..."
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
