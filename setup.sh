@@ -54,6 +54,8 @@ sudo apt-get install -y htop
 sudo apt-get install -y yajl-tools
 sudo apt-get install -y gimp
 sudo apt-get install -y meld
+sudo apt-get install -y ruby
+sudo apt-get install -y ant
 
 # Shell (zsh) and syntax highlighting
 echo "Setting up oh-my-zsh..."

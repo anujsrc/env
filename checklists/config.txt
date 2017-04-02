@@ -53,6 +53,8 @@ Customization and Utilities
    6.4. Inkscape  (Ubuntu Software)
    6.5. Install Unity Tweak Tool
    6.6. Install FileZilla
+   6.7. Install TeamViewer
+   6.8. Install Slack
 7. Add Terminal, Gedit and Chrome to Launcher
 8. Remove Amazon and Mount Point from launcher
 
@@ -61,6 +63,7 @@ Development Environment
 1. Run setup.sh
 2. Add ~/.envrc to ~/.bashrc or required location to apply for each session both interactive and non-interactive
 3. Add command zsh to the end of ~/.bashrc to start the terminal in zsh, else just use screen
+4. Setup IntelliJ Idea with Solarized theme- https://github.com/jkaving/intellij-colors-solarized.git
 
 Install Docker
 ---------------
