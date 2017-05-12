@@ -55,6 +55,7 @@ Customization and Utilities
    6.6. Install FileZilla
    6.7. Install TeamViewer
    6.8. Install Slack
+   6.9. Install Gitter
 7. Add Terminal, Gedit and Chrome to Launcher
 8. Remove Amazon and Mount Point from launcher
 

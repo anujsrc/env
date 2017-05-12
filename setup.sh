@@ -57,6 +57,13 @@ sudo apt-get install -y meld
 sudo apt-get install -y ruby
 sudo apt-get install -y ant
 
+echo "Setting up nodejs..."
+sudo apt-get purge nodejs npm
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 68576280
+sudo apt-add-repository "deb https://deb.nodesource.com/node_7.x $(lsb_release -sc) main"
+sudo apt-get update
+sudo apt-get install nodejs
+
 # Shell (zsh) and syntax highlighting
 echo "Setting up oh-my-zsh..."
 sudo apt-get install -y zsh
