@@ -51,6 +51,7 @@ sudo apt-get install -y font-manager
 sudo apt-get install -y figlet
 sudo apt-get install -y cowsay
 sudo apt-get install -y htop
+sudo apt-get install -y sysstat
 sudo apt-get install -y yajl-tools
 sudo apt-get install -y gimp
 sudo apt-get install -y meld
