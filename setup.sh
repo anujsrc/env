@@ -57,6 +57,8 @@ sudo apt-get install -y gimp
 sudo apt-get install -y meld
 sudo apt-get install -y ruby
 sudo apt-get install -y ant
+sudo apt-get install -y p7zip-full
+sudo apt-get install -y unrar
 
 echo "Setting up nodejs..."
 sudo apt-get purge nodejs npm
