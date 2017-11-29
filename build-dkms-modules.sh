@@ -67,13 +67,13 @@ sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
      kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n bbswitch)
 echo "Signing nvidia..."
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
-     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n nvidia_375_drm)
+     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n nvidia_384_drm)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
-     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n nvidia_375_uvm)
+     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n nvidia_384_uvm)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
-     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n nvidia_375_modeset)
+     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n nvidia_384_modeset)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 \
-     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n nvidia_375)
+     kernel-signing-keys/MOK.priv kernel-signing-keys/MOK.der $(modinfo -n nvidia_384)
 
 echo "-----------------------------------------------"
 echo "Configuring vbox..."
