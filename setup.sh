@@ -61,6 +61,8 @@ sudo apt-get install -y p7zip-full
 sudo apt-get install -y unrar
 sudo apt-get install -y cmake
 sudo apt-get install -y ssmtp
+sudo apt-get install -y alien
+sudo apt-get install -y libevent-dev
 
 echo "Setting up nodejs..."
 sudo apt-get purge nodejs npm
