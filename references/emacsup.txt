@@ -28,6 +28,8 @@ C-u C-M-x       Adds breakpoint and prepares to debug
 Other option is to just add #break before a form
 M-x             Lists all the instrumented defs
 C-c C-c         Evaluate the form again to remove break-point
+C-c M-t v       Enables tracing for the specified function
+C-c M-t n       Toggle tracing on/off for entire namespace
 
 - Debugger Shortcuts
 n          Next Step
