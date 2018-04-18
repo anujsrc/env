@@ -63,6 +63,15 @@ sudo apt-get install -y cmake
 sudo apt-get install -y ssmtp
 sudo apt-get install -y alien
 sudo apt-get install -y libevent-dev
+sudo apt-get install -y libpng-dev
+sudo apt-get install -y libcurl4-openssl-dev
+
+echo "Setting up R..."
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+sudo add-apt-repository "deb https://cran.cnr.berkeley.edu/bin/linux/ubuntu xenial/"
+sudo apt-get update
+sudo apt-get install r-base
+sudo apt-get install r-base-dev
 
 echo "Setting up nodejs..."
 sudo apt-get purge nodejs npm
