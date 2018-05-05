@@ -166,6 +166,8 @@ M-v		page up
 M-<		go to top of buffer
 M->		go to end of buffer
 M-g M-g n	go to line number n
+C-M-b           move to the beginning of s-exp
+C-M-<space>     select s-exp
 
 Markdown
 --------
