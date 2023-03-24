@@ -10,6 +10,8 @@ C-c C-q                 Quit nREPL connection
 Cider-Evaluate
 ---------------
 C-c C-e         Evaluate preceeding form
+C-c C-v C-q or
+C-c C-v q       Same as above but also taps the result
 C-c C-v w       Evaluate and replace with result
 C-c M-e         Evaluate and output result to REPL
 
@@ -20,7 +22,12 @@ C-c C-c or
 C-M-x           Evaluate top-level form and echo
 C-c C-v v       Evaluate the form around point
 C-c C-v r       Evaluate the region and echo
+C-c C-k         Load (eval) the current buffer
+C-c C-l         Load (eval) a Clojure file
+C-c C-M-l       Load (eval) all Clojure files below a directory
+C-c C-v n       Eval the ns form
 C-c C-b         Interrupt any pending evaluations
+
 
 Cider-Debug
 ------------
