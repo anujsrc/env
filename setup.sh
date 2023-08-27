@@ -65,6 +65,8 @@ sudo apt-get install -y alien
 sudo apt-get install -y libevent-dev
 sudo apt-get install -y libpng-dev
 sudo apt-get install -y libcurl4-openssl-dev
+# For Unicode Support for most used fonts
+sudo apt install -y fonts-noto
 
 echo "Setting up R..."
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
