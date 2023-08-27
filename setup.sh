@@ -84,8 +84,8 @@ sudo apt-get install nodejs
 echo "Setting up oh-my-zsh..."
 sudo apt-get install -y zsh
 if [ ! -e ~/.oh-my-zsh ]; then
-    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-    git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    git clone git@github.com:ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+    git clone git@github.com:zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     sudo chsh -s /bin/zsh
 fi
 
@@ -117,10 +117,11 @@ if [ ! -e ~/.envrc ]; then
 fi
 
 # solarized and dircolors setup for ubuntu
+# colors from git@github.com:seebi/dircolors-solarized.git
 platform=`uname`
 if [ $platform = 'Linux' ] && [ ! -e $SETUP_DIR/gnome-terminal-colors-solarized ]; then
   echo "Preparing solarized theme for terminal..."
-  git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git
+  git clone git@github.com:aruhier/gnome-terminal-colors-solarized.git
   cd gnome-terminal-colors-solarized
   ./set_dark.sh
   cd ..
@@ -148,16 +149,16 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 # vundle setup
 if [ ! -e ~/.vim/bundle/vundle ]; then
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+    git clone git@github.com:VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
 fi
 
 # vim pathogen plugins
 if [ ! -e ~/.vim/pathogen/vim-colors-solarized ]; then
-    git clone git://github.com/altercation/vim-colors-solarized.git ~/.vim/pathogen/vim-colors-solarized
+    git clone git@github.com:altercation/vim-colors-solarized.git ~/.vim/pathogen/vim-colors-solarized
 fi
 
 if [ ! -e ~/.vim/pathogen/nerdtree ]; then
-    git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pathogen/nerdtree
+    git clone git@github.com:preservim/nerdtree.git ~/.vim/pathogen/nerdtree
 fi
 
 echo "Installing vim plugins..."
