@@ -80,3 +80,8 @@ built and installed module!) (WARNING! Diff between built and installed module!)
 (WARNING! Diff between built and installed module!) (WARNING! Diff between built
 and installed module!)
 ```
+
+### Nvidia and Secure Boot with Debian-12 (Bookworm)
+Follow the steps mentioned in the following wiki pages to setup signed Nvidia drivers and CUDA with Secure Boot:
+* [Nvidia Graphics Driver](https://wiki.debian.org/NvidiaGraphicsDrivers#bookworm-525)
+* [Sign Modules with Your Keys](https://wiki.debian.org/SecureBoot#Using_your_key_to_sign_modules)
