@@ -1,0 +1,44 @@
+{
+  "name": "Clojure",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": ".",
+    "args": {
+      "VARIANT": "17-bookworm",
+      "CLOJURE_VERSION": "1.11.1",
+      "INSTALL_CLOJURE_CLI": "true",
+      "CLOJURE_CLI_VERSION": "1.11.1.1435",
+      "INSTALL_LEININGEN": "true",
+      "LEININGEN_VERSION": "stable",
+      "INSTALL_POLYLITH": "true",
+      "POLYLITH_VERSION": "0.2.18",
+      "INSTALL_BABASHKA": "true",
+      "BABASHKA_VERSION": "1.3.188",
+      "INSTALL_BOOT": "false",
+      "BOOT_VERSION": "2.8.3"
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "none",
+      "installMaven": "false",
+      "installGradle": "false"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20.11.0"
+    }
+  },
+  "forwardPorts": [],
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-java-debug",
+        "betterthantomorrow.calva",
+        "djblue.portal"
+      ]
+    }
+  }
+}
