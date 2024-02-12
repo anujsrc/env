@@ -1,0 +1,31 @@
+{
+  "name": "Python",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": ".",
+    "args": {
+      "VARIANT": "3.12-bookworm",
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "none"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20.11.0"
+    }
+  },
+  "forwardPorts": [],
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-python.python",
+        "ms-python.debugpy",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  }
+}
