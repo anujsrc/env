@@ -20,7 +20,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 
 COPY requirements.txt /tmp/pip-tmp/
 RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
-    && rm -rf /tmp/pip-tmp
+   && rm -rf /tmp/pip-tmp
 
 # Download artefacts for Spacy and NLTK
 RUN python3 -m spacy download en_core_web_sm \
