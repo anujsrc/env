@@ -1,0 +1,509 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+
+  "permissions": {
+    "disableAutoMode": "disable",
+    "disableBypassPermissionsMode": "disable",
+
+    "deny": [
+      "Bash(sudo *)",
+      "Bash(su *)",
+      "Bash(doas *)",
+      "Bash(pkexec *)",
+      "Bash(security *)",
+      "Bash(shred *)",
+      "Bash(mkfs*)",
+      "Bash(diskutil erase*)",
+      "Bash(dd *)",
+
+      "Bash(git clean *)",
+      "Bash(git * clean *)",
+      "Bash(git reset *--hard*)",
+      "Bash(git * reset *--hard*)",
+      "Bash(git checkout -f *)",
+      "Bash(git checkout * -f *)",
+      "Bash(git * checkout -f *)",
+      "Bash(git * checkout * -f *)",
+      "Bash(git switch *--discard-changes*)",
+      "Bash(git * switch *--discard-changes*)",
+      "Bash(git branch -D *)",
+      "Bash(git branch * -D *)",
+      "Bash(git * branch -D *)",
+      "Bash(git * branch * -D *)",
+      "Bash(git stash clear*)",
+      "Bash(git stash drop*)",
+      "Bash(git * stash clear*)",
+      "Bash(git * stash drop*)",
+      "Bash(git reflog expire*)",
+      "Bash(git * reflog expire*)",
+      "Bash(git prune*)",
+      "Bash(git * prune*)",
+      "Bash(git gc *--prune*)",
+      "Bash(git * gc *--prune*)",
+      "Bash(git worktree remove*)",
+      "Bash(git * worktree remove*)",
+      "Bash(git filter-branch *)",
+      "Bash(git * filter-branch *)",
+      "Bash(git filter-repo *)",
+      "Bash(git * filter-repo *)",
+
+      "Bash(git push *--force*)",
+      "Bash(git * push *--force*)",
+      "Bash(git push -f)",
+      "Bash(git push -f *)",
+      "Bash(git push * -f)",
+      "Bash(git push * -f *)",
+      "Bash(git * push -f)",
+      "Bash(git * push -f *)",
+      "Bash(git * push * -f)",
+      "Bash(git * push * -f *)",
+      "Bash(git push *--delete*)",
+      "Bash(git * push *--delete*)",
+      "Bash(git push *--mirror*)",
+      "Bash(git * push *--mirror*)",
+      "Bash(git push *--prune*)",
+      "Bash(git * push *--prune*)",
+      "Bash(git push * :*)",
+      "Bash(git * push * :*)",
+      "Bash(git push * +*)",
+      "Bash(git * push * +*)",
+
+      "Bash(gh auth logout*)",
+      "Bash(gh repo delete*)",
+      "Bash(gh repo archive*)",
+      "Bash(gh pr merge*)",
+      "Bash(gh pr close*)",
+      "Bash(gh issue delete*)",
+      "Bash(gh release delete*)",
+      "Bash(gh run delete*)",
+      "Bash(gh workflow disable*)",
+      "Bash(gh secret delete*)",
+      "Bash(gh variable delete*)",
+      "Bash(gh api *-X DELETE*)",
+      "Bash(gh api *-XDELETE*)",
+      "Bash(gh api *--method DELETE*)",
+
+      "Bash(kubectl delete*)",
+      "Bash(kubectl * delete*)",
+      "Bash(kubectl drain*)",
+      "Bash(kubectl * drain*)",
+      "Bash(kubectl replace *--force*)",
+      "Bash(kubectl * replace *--force*)",
+      "Bash(kubectl scale *--replicas=0*)",
+      "Bash(kubectl * scale *--replicas=0*)",
+      "Bash(helm uninstall*)",
+      "Bash(helm * uninstall*)",
+
+      "Bash(terraform destroy*)",
+      "Bash(terraform * destroy*)",
+      "Bash(terraform apply *-destroy*)",
+      "Bash(terraform * apply *-destroy*)",
+      "Bash(terraform state rm*)",
+      "Bash(terraform * state rm*)",
+      "Bash(terraform workspace delete*)",
+      "Bash(terraform * workspace delete*)",
+
+      "Bash(tofu destroy*)",
+      "Bash(tofu * destroy*)",
+      "Bash(tofu apply *-destroy*)",
+      "Bash(tofu * apply *-destroy*)",
+      "Bash(tofu state rm*)",
+      "Bash(tofu * state rm*)",
+      "Bash(tofu workspace delete*)",
+      "Bash(tofu * workspace delete*)",
+
+      "Bash(terragrunt destroy*)",
+      "Bash(terragrunt * destroy*)",
+
+      "Bash(docker system prune*)",
+      "Bash(docker * system prune*)",
+      "Bash(docker container prune*)",
+      "Bash(docker * container prune*)",
+      "Bash(docker image prune*)",
+      "Bash(docker * image prune*)",
+      "Bash(docker volume prune*)",
+      "Bash(docker * volume prune*)",
+      "Bash(docker network prune*)",
+      "Bash(docker * network prune*)",
+      "Bash(docker builder prune*)",
+      "Bash(docker * builder prune*)",
+      "Bash(docker volume rm*)",
+      "Bash(docker * volume rm*)",
+      "Bash(docker compose down *-v*)",
+      "Bash(docker compose * down *-v*)",
+
+      "Bash(npm publish)",
+      "Bash(npm publish *)",
+      "Bash(npm unpublish)",
+      "Bash(npm unpublish *)",
+      "Bash(twine upload)",
+      "Bash(twine upload *)",
+      "Bash(cargo publish)",
+      "Bash(cargo publish *)",
+      "Bash(mvn deploy)",
+      "Bash(mvn deploy *)",
+      "Bash(lein deploy)",
+      "Bash(lein deploy *)",
+
+      "Bash(aws * delete*)",
+      "Bash(aws * terminate*)",
+      "Bash(aws s3 rm *)",
+      "Bash(aws * s3 rm *)",
+      "Bash(aws s3 sync *--delete*)",
+      "Bash(aws * s3 sync *--delete*)",
+      "Bash(az * delete*)",
+      "Bash(gcloud * delete*)",
+
+      "Read(~/.ssh/id_*)",
+      "Read(~/.ssh/*.pem)",
+      "Read(~/.ssh/*.key)",
+
+      "Read(~/.aws/**)",
+      "Read(~/.kube/**)",
+      "Read(~/.azure/**)",
+      "Read(~/.config/gcloud/**)",
+      "Read(~/.npmrc)",
+      "Read(~/.pypirc)",
+      "Read(~/.gnupg/**)",
+      "Read(~/.docker/config.json)",
+      "Read(~/.m2/settings.xml)",
+      "Read(~/.lein/credentials.clj.gpg)",
+      "Read(~/.netrc)",
+      "Read(~/.git-credentials)",
+      "Read(~/.databrickscfg)",
+      "Read(~/.claude.json)",
+      "Read(~/.claude/.credentials.json)",
+
+      "Read(.env)",
+      "Read(.env.local)",
+      "Read(.env.*.local)",
+      "Read(.env.development)",
+      "Read(.env.test)",
+      "Read(.env.production)",
+      "Read(.env.staging)",
+      "Read(.envrc)",
+      "Read(secrets/**)",
+
+      "Edit(~/.aws/**)",
+      "Edit(~/.kube/**)",
+      "Edit(~/.azure/**)",
+      "Edit(~/.config/gcloud/**)",
+      "Edit(~/.npmrc)",
+      "Edit(~/.pypirc)",
+      "Edit(~/.gnupg/**)",
+      "Edit(~/.docker/config.json)",
+      "Edit(~/.m2/settings.xml)",
+      "Edit(~/.lein/credentials.clj.gpg)",
+      "Edit(~/.netrc)",
+      "Edit(~/.git-credentials)",
+      "Edit(~/.databrickscfg)",
+      "Edit(~/.claude.json)",
+      "Edit(~/.claude/.credentials.json)",
+
+      "Edit(.env)",
+      "Edit(.env.local)",
+      "Edit(.env.*.local)",
+      "Edit(.env.development)",
+      "Edit(.env.test)",
+      "Edit(.env.production)",
+      "Edit(.env.staging)",
+      "Edit(.envrc)",
+      "Edit(secrets/**)",
+
+      "Edit(~/.claude/settings.json)",
+      "Edit(**/.claude/settings.json)",
+      "Edit(**/.claude/settings.local.json)"
+    ],
+
+    "ask": [
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(unlink *)",
+      "Bash(find * -delete*)",
+
+      "Bash(git restore *)",
+      "Bash(git * restore *)",
+      "Bash(git checkout -- *)",
+      "Bash(git * checkout -- *)",
+      "Bash(git branch -d *)",
+      "Bash(git * branch -d *)",
+      "Bash(git tag -d *)",
+      "Bash(git * tag -d *)",
+
+      "Bash(git merge *)",
+      "Bash(git * merge *)",
+      "Bash(git rebase *)",
+      "Bash(git * rebase *)",
+      "Bash(git cherry-pick *)",
+      "Bash(git * cherry-pick *)",
+      "Bash(git revert *)",
+      "Bash(git * revert *)",
+
+      "Bash(git commit)",
+      "Bash(git commit *)",
+      "Bash(git * commit)",
+      "Bash(git * commit *)",
+
+      "Bash(git push)",
+      "Bash(git push *)",
+      "Bash(git * push)",
+      "Bash(git * push *)",
+
+      "Bash(git remote remove *)",
+      "Bash(git * remote remove *)",
+      "Bash(git remote set-url *)",
+      "Bash(git * remote set-url *)",
+      "Bash(git config --global *)",
+      "Bash(git * config --global *)",
+
+      "Bash(gh auth login*)",
+      "Bash(gh auth refresh*)",
+      "Bash(gh auth setup-git*)",
+      "Bash(gh api *)",
+
+      "Bash(gh pr create*)",
+      "Bash(gh pr reopen*)",
+      "Bash(gh pr review*)",
+      "Bash(gh pr comment*)",
+      "Bash(gh pr edit*)",
+
+      "Bash(gh issue create*)",
+      "Bash(gh issue edit*)",
+      "Bash(gh issue comment*)",
+      "Bash(gh issue close*)",
+      "Bash(gh issue reopen*)",
+
+      "Bash(gh release create*)",
+      "Bash(gh release edit*)",
+      "Bash(gh release upload*)",
+
+      "Bash(gh repo edit*)",
+      "Bash(gh workflow run*)",
+      "Bash(gh secret set*)",
+      "Bash(gh variable set*)",
+
+      "Edit(~/.ssh/**)",
+      "Edit(**/.github/workflows/**)",
+      "Edit(**/.github/actions/**)",
+
+      "Bash(kubectl apply *)",
+      "Bash(kubectl * apply *)",
+      "Bash(kubectl patch *)",
+      "Bash(kubectl * patch *)",
+      "Bash(kubectl edit *)",
+      "Bash(kubectl * edit *)",
+      "Bash(kubectl rollout *)",
+      "Bash(kubectl * rollout *)",
+      "Bash(kubectl scale *)",
+      "Bash(kubectl * scale *)",
+
+      "Bash(helm upgrade *)",
+      "Bash(helm * upgrade *)",
+      "Bash(helm rollback *)",
+      "Bash(helm * rollback *)",
+
+      "Bash(terraform apply)",
+      "Bash(terraform apply *)",
+      "Bash(terraform * apply)",
+      "Bash(terraform * apply *)",
+
+      "Bash(tofu apply)",
+      "Bash(tofu apply *)",
+      "Bash(tofu * apply)",
+      "Bash(tofu * apply *)",
+
+      "Bash(docker compose down)",
+      "Bash(docker compose down *)",
+      "Bash(docker compose * down *)",
+      "Bash(docker rm *)",
+      "Bash(docker image rm *)",
+      "Bash(docker network rm *)",
+      "Bash(docker push *)"
+    ]
+  },
+
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false,
+    "autoAllowBashIfSandboxed": false,
+
+    "credentials": {
+      "files": [
+        {
+          "path": "~/.aws",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.kube",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.azure",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/gcloud",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.npmrc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.pypirc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.gnupg",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.docker/config.json",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.m2/settings.xml",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.lein/credentials.clj.gpg",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.netrc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.git-credentials",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.databrickscfg",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.claude.json",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.claude/.credentials.json",
+          "mode": "deny"
+        }
+      ],
+
+      "envVars": [
+        {
+          "name": "GITHUB_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "GH_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "NPM_TOKEN",
+          "mode": "deny"
+        },
+
+        {
+          "name": "OPENAI_API_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "ANTHROPIC_AUTH_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "CLAUDE_CODE_OAUTH_TOKEN",
+          "mode": "deny"
+        },
+
+        {
+          "name": "AWS_ACCESS_KEY_ID",
+          "mode": "deny"
+        },
+        {
+          "name": "AWS_SECRET_ACCESS_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "AWS_SESSION_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "AWS_SHARED_CREDENTIALS_FILE",
+          "mode": "deny"
+        },
+        {
+          "name": "AWS_CONFIG_FILE",
+          "mode": "deny"
+        },
+
+        {
+          "name": "KUBECONFIG",
+          "mode": "deny"
+        },
+
+        {
+          "name": "GOOGLE_APPLICATION_CREDENTIALS",
+          "mode": "deny"
+        },
+
+        {
+          "name": "AZURE_CLIENT_SECRET",
+          "mode": "deny"
+        },
+        {
+          "name": "ARM_CLIENT_SECRET",
+          "mode": "deny"
+        },
+        {
+          "name": "ARM_ACCESS_KEY",
+          "mode": "deny"
+        },
+
+        {
+          "name": "DOCKER_AUTH_CONFIG",
+          "mode": "deny"
+        },
+
+        {
+          "name": "DATABRICKS_TOKEN",
+          "mode": "deny"
+        },
+
+        {
+          "name": "HF_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "HUGGINGFACE_HUB_TOKEN",
+          "mode": "deny"
+        },
+
+        {
+          "name": "TWINE_PASSWORD",
+          "mode": "deny"
+        },
+        {
+          "name": "CARGO_REGISTRY_TOKEN",
+          "mode": "deny"
+        },
+
+        {
+          "name": "CLOJARS_USERNAME",
+          "mode": "deny"
+        },
+        {
+          "name": "CLOJARS_PASSWORD",
+          "mode": "deny"
+        }
+      ]
+    }
+  }
+}

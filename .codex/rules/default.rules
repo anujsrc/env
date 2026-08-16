@@ -1,0 +1,130 @@
+# ============================================================
+# Codex global safety rules
+# ============================================================
+
+prefix_rule(
+    pattern = [["sudo", "su", "doas", "pkexec"]],
+    decision = "forbidden",
+    justification = "Privilege escalation must be performed manually."
+)
+
+prefix_rule(
+    pattern = ["security"],
+    decision = "forbidden",
+    justification = "macOS Keychain CLI access is prohibited."
+)
+
+prefix_rule(
+    pattern = [["shred", "dd"]],
+    decision = "forbidden",
+    justification = "High-risk filesystem operations must be performed manually."
+)
+
+prefix_rule(
+    pattern = ["git", "clean"],
+    decision = "forbidden",
+    justification = "git clean can irreversibly remove untracked files."
+)
+
+prefix_rule(
+    pattern = ["git", "reset", "--hard"],
+    decision = "forbidden",
+    justification = "Hard resets must be performed manually."
+)
+
+prefix_rule(
+    pattern = ["git", "branch", "-D"],
+    decision = "forbidden",
+    justification = "Forced branch deletion must be performed manually."
+)
+
+prefix_rule(
+    pattern = ["git", "stash", ["drop", "clear"]],
+    decision = "forbidden",
+    justification = "Stash destruction must be performed manually."
+)
+
+prefix_rule(
+    pattern = ["gh", "repo", ["delete", "archive"]],
+    decision = "forbidden",
+    justification = "Repository destructive actions are prohibited."
+)
+
+prefix_rule(
+    pattern = ["gh", "pr", ["merge", "close"]],
+    decision = "forbidden",
+    justification = "Final PR actions remain human-only."
+)
+
+prefix_rule(
+    pattern = ["kubectl", ["delete", "drain"]],
+    decision = "forbidden",
+    justification = "Destructive cluster actions remain human-only."
+)
+
+prefix_rule(
+    pattern = ["helm", "uninstall"],
+    decision = "forbidden",
+    justification = "Deployment deletion remains human-only."
+)
+
+prefix_rule(
+    pattern = ["terraform", "destroy"],
+    decision = "forbidden",
+    justification = "Infrastructure destruction remains human-only."
+)
+
+prefix_rule(
+    pattern = ["tofu", "destroy"],
+    decision = "forbidden",
+    justification = "Infrastructure destruction remains human-only."
+)
+
+prefix_rule(
+    pattern = ["terragrunt", "destroy"],
+    decision = "forbidden",
+    justification = "Infrastructure destruction remains human-only."
+)
+
+prefix_rule(
+    pattern = ["npm", ["publish", "unpublish"]],
+    decision = "forbidden",
+    justification = "Package publication remains human-only."
+)
+
+prefix_rule(
+    pattern = ["mvn", "deploy"],
+    decision = "forbidden",
+    justification = "Artifact publication remains human-only."
+)
+
+prefix_rule(
+    pattern = ["lein", "deploy"],
+    decision = "forbidden",
+    justification = "Clojure artifact publication remains human-only."
+)
+
+prefix_rule(
+    pattern = [
+        "git",
+        ["commit", "push", "merge", "rebase", "cherry-pick", "revert"]
+    ],
+    decision = "prompt",
+    justification = "Git history or remote changes require human approval."
+)
+
+prefix_rule(
+    pattern = ["gh", "api"],
+    decision = "prompt",
+    justification = "Direct GitHub API access requires human approval."
+)
+
+prefix_rule(
+    pattern = [
+        "gh",
+        "pr",
+        ["create", "reopen", "review", "comment", "edit"]
+    ],
+    decision = "prompt",
+    justification = "GitHub PR writes require human approval."
+)

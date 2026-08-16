@@ -1,0 +1,271 @@
+notify = ["/Users/anuj/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+
+# ------------------------------------------------------------
+# Authentication / supervision
+# ------------------------------------------------------------
+
+# Never use API-key authentication for Codex.
+# Codex must use the ChatGPT subscription.
+forced_login_method = "chatgpt"
+
+# Store login/OAuth credentials in macOS Keychain.
+cli_auth_credentials_store = "keyring"
+mcp_oauth_credentials_store = "keyring"
+
+# Known-safe operations may run; untrusted/mutating commands ask me.
+approval_policy = "untrusted"
+
+# I approve escalation requests; do not use automatic reviewer agents.
+approvals_reviewer = "user"
+
+# Use the hardened local coding permissions profile below.
+default_permissions = "supervised-coding"
+
+[marketplaces.openai-bundled]
+last_updated = "2026-08-12T15:43:08Z"
+source_type = "local"
+source = "/Users/anuj/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+last_updated = "2026-08-06T05:54:31Z"
+source_type = "local"
+source = "/Users/anuj/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."sites@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."google-calendar@openai-curated"]
+enabled = true
+
+[plugins."slack@openai-curated"]
+enabled = true
+
+[features]
+js_repl = false
+hooks = true
+
+# ============================================================
+# Supervised coding permissions
+# ============================================================
+
+[permissions.supervised-coding]
+description = "Supervised VS Code development with workspace writes and protected credentials."
+extends = ":workspace"
+
+
+# ------------------------------------------------------------
+# Files outside the workspace
+# ------------------------------------------------------------
+
+[permissions.supervised-coding.filesystem]
+
+# Git-over-SSH support:
+# ssh may read config/known_hosts and use ssh-agent.
+"~/.ssh" = "read"
+
+# But private key material is inaccessible.
+"~/.ssh/id_rsa" = "deny"
+"~/.ssh/id_ed25519" = "deny"
+"~/.ssh/id_ecdsa" = "deny"
+"~/.ssh/id_dsa" = "deny"
+"~/.ssh/*.pem" = "deny"
+"~/.ssh/*.key" = "deny"
+
+# Normal Git configuration may be read.
+"~/.gitconfig" = "read"
+"~/.config/git" = "read"
+
+# Cloud / infrastructure credentials.
+"~/.aws" = "deny"
+"~/.kube" = "deny"
+"~/.azure" = "deny"
+"~/.config/gcloud" = "deny"
+
+# Registry / package credentials.
+"~/.npmrc" = "deny"
+"~/.pypirc" = "deny"
+"~/.gnupg" = "deny"
+"~/.docker/config.json" = "deny"
+"~/.m2/settings.xml" = "deny"
+"~/.lein/credentials.clj.gpg" = "deny"
+"~/.netrc" = "deny"
+"~/.git-credentials" = "deny"
+"~/.databrickscfg" = "deny"
+
+# Other AI-agent credentials/state.
+"~/.claude.json" = "deny"
+"~/.claude/.credentials.json" = "deny"
+
+# Do not expose Codex's own stored auth file to commands.
+"~/.codex/auth.json" = "deny"
+
+
+# ------------------------------------------------------------
+# Current VS Code workspace
+# ------------------------------------------------------------
+
+[permissions.supervised-coding.filesystem.":workspace_roots"]
+
+# Normal source files remain writable through the inherited
+# :workspace profile.
+
+# Secrets are unreadable even though the project is writable.
+"**/.env" = "deny"
+"**/.env.local" = "deny"
+"**/.env.*.local" = "deny"
+"**/.env.development" = "deny"
+"**/.env.test" = "deny"
+"**/.env.production" = "deny"
+"**/.env.staging" = "deny"
+"**/.envrc" = "deny"
+"**/secrets/**" = "deny"
+
+# CI/CD is important enough to require an approval/escalation
+# rather than autonomous modification.
+".github/workflows" = "read"
+".github/actions" = "read"
+
+
+# ------------------------------------------------------------
+# Command network access
+# ------------------------------------------------------------
+
+[permissions.supervised-coding.network]
+enabled = false
+
+# ============================================================
+# Apps / connectors
+# ============================================================
+
+[apps._default]
+
+# Read-only tools can proceed; writing tools require approval.
+default_tools_approval_mode = "writes"
+
+# I approve writes, not another AI.
+approvals_reviewer = "user"
+
+# Do not expose tools explicitly advertised as destructive.
+destructive_enabled = false
+
+# Do not allow app tools that can make arbitrary/open-world
+# external requests unless enabled deliberately per app.
+open_world_enabled = false
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/anuj/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+CODEX_HOME = "/Users/anuj/.codex"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "8e86beb821b9afc846211798e0113bd4b9e79312dfcd135eb447bdb154f64071"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = "Control desktop apps on macOS through Computer Use."
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.803.61601"
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
+
+[mcp_servers.computer-use]
+command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+args = ["mcp"]
+cwd = "."
+enabled = false
+
+[shell_environment_policy]
+inherit = "all"
+
+# Enable Codex's default filtering of environment variables
+# containing KEY, SECRET or TOKEN.
+ignore_default_excludes = false
+
+[shell_environment_policy.set]
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "8e86beb821b9afc846211798e0113bd4b9e79312dfcd135eb447bdb154f64071"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/anuj/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+
+[shell_environment_policy.filters]
+
+# OpenAI / Claude
+OPENAI_API_KEY = "exclude"
+CODEX_API_KEY = "exclude"
+ANTHROPIC_API_KEY = "exclude"
+ANTHROPIC_AUTH_TOKEN = "exclude"
+CLAUDE_CODE_OAUTH_TOKEN = "exclude"
+
+# GitHub
+GITHUB_TOKEN = "exclude"
+GH_TOKEN = "exclude"
+
+# Package registries
+NPM_TOKEN = "exclude"
+TWINE_PASSWORD = "exclude"
+CARGO_REGISTRY_TOKEN = "exclude"
+CLOJARS_USERNAME = "exclude"
+CLOJARS_PASSWORD = "exclude"
+
+# AWS
+AWS_ACCESS_KEY_ID = "exclude"
+AWS_SECRET_ACCESS_KEY = "exclude"
+AWS_SESSION_TOKEN = "exclude"
+AWS_SHARED_CREDENTIALS_FILE = "exclude"
+AWS_CONFIG_FILE = "exclude"
+
+# Kubernetes
+KUBECONFIG = "exclude"
+
+# GCP
+GOOGLE_APPLICATION_CREDENTIALS = "exclude"
+
+# Azure
+AZURE_CLIENT_SECRET = "exclude"
+ARM_CLIENT_SECRET = "exclude"
+ARM_ACCESS_KEY = "exclude"
+
+# Docker
+DOCKER_AUTH_CONFIG = "exclude"
+
+# Databricks
+DATABRICKS_TOKEN = "exclude"
+
+# Hugging Face
+HF_TOKEN = "exclude"
+HUGGINGFACE_HUB_TOKEN = "exclude"
+
+[desktop]
+conversationDetailMode = "STEPS_PROSE"
+ambient-suggestions-enabled = true
+followUpQueueMode = "queue"
+enabled-reasoning-efforts = ["low", "medium", "high", "xhigh", "ultra", "max"]
+
+[projects."/Users/anuj/.codex/.chatgpt-projects/g-p-6a35f621efc081919ac34fb8e6cca25f"]
+trust_level = "trusted"
